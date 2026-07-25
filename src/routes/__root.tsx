@@ -10,8 +10,6 @@ import { GamePreferencesProvider } from '@/game/game-preferences';
 import gameCss from '@/game/game.css?url';
 import gameMotionCss from '@/game/game-motion.css?url';
 
-const SITE_URL = 'https://sudoku.mksaas.link';
-
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -28,29 +26,11 @@ export const Route = createRootRoute({
           'A calming cat-placement logic puzzle with colorful regions and daily challenges.',
       },
       { name: 'theme-color', content: '#8d11df' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: 'MimoDoku' },
-      { property: 'og:title', content: 'MimoDoku' },
-      {
-        property: 'og:description',
-        content:
-          'A calming cat-placement logic puzzle with colorful regions and daily challenges.',
-      },
-      { property: 'og:url', content: `${SITE_URL}/` },
-      { property: 'og:image', content: `${SITE_URL}/og.png` },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: 'MimoDoku' },
-      {
-        name: 'twitter:description',
-        content:
-          'A calming cat-placement logic puzzle with colorful regions and daily challenges.',
-      },
-      { name: 'twitter:image', content: `${SITE_URL}/og.png` },
+      { property: 'og:image', content: '/og.png' },
     ],
     links: [
       { rel: 'stylesheet', href: gameCss },
       { rel: 'stylesheet', href: gameMotionCss },
-      { rel: 'canonical', href: `${SITE_URL}/` },
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',

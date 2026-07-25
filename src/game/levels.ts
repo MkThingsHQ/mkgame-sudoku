@@ -162,11 +162,14 @@ export const GAME_LEVELS: GameLevel[] = Array.from(
 );
 
 export function getDailyLevelIndex(date: string) {
-  const hash = [...date].reduce(
-    (total, character) => total + character.charCodeAt(0),
-    0
-  );
-  return hash % GAME_LEVELS.length;
+  // FNV-1a keeps consecutive dates from mapping to adjacent levels, so the
+  // daily challenge feels varied instead of stepping through levels in order.
+  let hash = 2_166_136_261;
+  for (const character of `mimodoku:${date}`) {
+    hash ^= character.charCodeAt(0);
+    hash = Math.imul(hash, 16_777_619);
+  }
+  return (hash >>> 0) % GAME_LEVELS.length;
 }
 
 export const REGION_COLORS = [
