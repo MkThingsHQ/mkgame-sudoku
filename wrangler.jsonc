@@ -6,11 +6,5 @@
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
     "enabled": true
-  },
-  "routes": [
-    {
-      "pattern": "sudoku.mksaas.link",
-      "custom_domain": true
-    }
-  ]
+  }
 }

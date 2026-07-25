@@ -57,9 +57,6 @@ Deploy the production Worker:
 pnpm run deploy
 ```
 
-The Worker is deployed to `sudoku.mksaas.link`. It is stateless and does not
-require runtime environment variables or Cloudflare storage bindings.
-
 ## Routes
 
 | Route | Purpose |
