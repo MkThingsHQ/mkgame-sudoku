@@ -460,9 +460,7 @@ test.describe('MimoDoku game', () => {
     await expect(
       page.getByRole('heading', { name: 'How to play', exact: true })
     ).toBeVisible();
-    await expect(
-      page.getByText('Use logic to find a safe home for every cat.')
-    ).toBeVisible();
+    await expect(page.locator('.inner-page-intro')).toHaveCount(0);
     await expect(page.locator('.game-page-header .eyebrow')).toHaveCount(0);
     for (const heading of [
       'One cat in every color',
@@ -512,9 +510,7 @@ test.describe('MimoDoku game', () => {
     await expect(
       page.getByRole('heading', { name: '玩法介绍', exact: true })
     ).toBeVisible();
-    await expect(
-      page.getByText('用逻辑为每只猫咪找到安全的家。')
-    ).toBeVisible();
+    await expect(page.locator('.inner-page-intro')).toHaveCount(0);
     await expect(
       page.getByText('每种颜色领地中只能放一只猫咪。')
     ).toBeVisible();
@@ -571,25 +567,8 @@ test.describe('MimoDoku game', () => {
     await expect(
       page.getByRole('button', { name: /Restore defaults/ })
     ).toHaveCount(0);
-
-    const tanStarterCredit = page.getByTestId('tanstarter-credit');
-    await expect(tanStarterCredit).toBeVisible();
-    await expect(
-      tanStarterCredit.getByRole('img', { name: 'TanStarter logo' })
-    ).toBeVisible();
-    await expect(
-      tanStarterCredit.getByRole('heading', { name: 'TanStarter' })
-    ).toBeVisible();
-    await expect(
-      tanStarterCredit.getByText(
-        'Ship Faster with TanStack, Cost Less with Cloudflare'
-      )
-    ).toBeVisible();
-    await expect(
-      tanStarterCredit.getByRole('link', {
-        name: 'Visit TanStarter website',
-      })
-    ).toHaveAttribute('href', 'https://tanstarter.dev');
+    await expect(page.locator('.inner-page-intro')).toHaveCount(0);
+    await expect(page.getByTestId('tanstarter-credit')).toHaveCount(0);
 
     const music = page.getByRole('button', { name: /Background music/ });
     const sound = page.getByRole('button', { name: /Sound effects/ });

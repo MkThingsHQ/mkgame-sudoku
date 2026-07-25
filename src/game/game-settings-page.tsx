@@ -1,6 +1,5 @@
 import {
   IconDeviceMobile,
-  IconExternalLink,
   IconLanguage,
   IconMusic,
   IconSparkles,
@@ -90,8 +89,6 @@ export function GameSettingsControls() {
 
   return (
     <>
-      <p className="inner-page-intro">{copy.settingsIntro}</p>
-
       <section aria-labelledby="language-heading" className="settings-section">
         <div className="settings-section-title">
           <IconLanguage />
@@ -153,35 +150,6 @@ export function GameSettingsControls() {
             );
           })}
         </div>
-      </section>
-
-      <section
-        aria-labelledby="tanstarter-credit-title"
-        className="settings-section tanstarter-credit"
-        data-testid="tanstarter-credit"
-      >
-        <div className="tanstarter-brand">
-          <img
-            alt="TanStarter logo"
-            className="tanstarter-logo"
-            src="/tanstarter.png"
-          />
-          <div className="tanstarter-copy">
-            <span>Built with</span>
-            <h2 id="tanstarter-credit-title">TanStarter</h2>
-            <p>Ship Faster with TanStack, Cost Less with Cloudflare</p>
-          </div>
-        </div>
-        <a
-          aria-label="Visit TanStarter website"
-          className="tanstarter-link"
-          href="https://tanstarter.dev"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          tanstarter.dev
-          <IconExternalLink aria-hidden="true" />
-        </a>
       </section>
     </>
   );

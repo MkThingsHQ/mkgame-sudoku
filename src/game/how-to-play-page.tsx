@@ -26,7 +26,6 @@ export function HowToPlayPage({ returnToPlay }: HowToPlayPageProps) {
           title={copy.howToPlay}
         />
 
-        <p className="inner-page-intro">{copy.howToPlayIntro}</p>
         <GameGuideCards language={preferences.language} />
       </main>
     </div>

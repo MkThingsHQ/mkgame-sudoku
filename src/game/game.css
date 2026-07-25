@@ -796,10 +796,6 @@ body {
   overflow-y: auto;
 }
 
-.settings-game-scroll .inner-page-intro {
-  margin: 18px auto;
-}
-
 .settings-game-scroll .settings-section:last-child {
   margin-bottom: 0;
 }
@@ -1970,16 +1966,6 @@ body {
   overflow: visible;
 }
 
-.inner-page-intro {
-  max-width: 390px;
-  margin: 22px auto 24px;
-  color: #826c85;
-  font-size: 0.96rem;
-  font-weight: 700;
-  line-height: 1.55;
-  text-align: center;
-}
-
 .settings-section {
   margin-bottom: 18px;
   padding: 18px;
@@ -2005,91 +1991,6 @@ body {
 .settings-section-title h2 {
   margin: 0;
   font-size: 1.05rem;
-}
-
-.tanstarter-credit {
-  background: linear-gradient(145deg, rgb(255 255 255 / 94%), #f5e8ff);
-  box-shadow: 0 10px 24px rgb(78 38 111 / 12%);
-}
-
-.tanstarter-brand {
-  display: grid;
-  grid-template-columns: 68px minmax(0, 1fr);
-  align-items: center;
-  gap: 14px;
-}
-
-.tanstarter-logo {
-  width: 68px;
-  height: 68px;
-  padding: 5px;
-  object-fit: contain;
-  border: 2px solid #eadbf1;
-  border-radius: 19px;
-  background: white;
-  box-shadow: 0 7px 17px rgb(126 42 173 / 14%);
-}
-
-.tanstarter-copy {
-  min-width: 0;
-}
-
-.tanstarter-copy > span {
-  color: #a07ba9;
-  font-size: 0.58rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.tanstarter-copy h2,
-.tanstarter-copy p {
-  margin: 0;
-}
-
-.tanstarter-copy h2 {
-  margin-top: 1px;
-  color: var(--game-purple-dark);
-  font-size: 1.08rem;
-}
-
-.tanstarter-copy p {
-  margin-top: 3px;
-  color: #8b7190;
-  font-size: 0.7rem;
-  font-weight: 700;
-  line-height: 1.42;
-}
-
-.tanstarter-link {
-  display: flex;
-  min-height: 44px;
-  padding: 8px 14px;
-  margin-top: 15px;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  color: white;
-  border-radius: 15px;
-  background: linear-gradient(180deg, #b950e8, #8d24c1);
-  box-shadow: 0 4px 0 #6e159a;
-  font-size: 0.76rem;
-  font-weight: 900;
-  text-decoration: none;
-  transition:
-    box-shadow 140ms ease,
-    transform 140ms ease;
-}
-
-.tanstarter-link:hover,
-.tanstarter-link:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 0 #6e159a;
-}
-
-.tanstarter-link svg {
-  width: 17px;
-  height: 17px;
 }
 
 .language-picker {

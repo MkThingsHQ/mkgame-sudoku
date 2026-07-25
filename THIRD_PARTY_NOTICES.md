@@ -10,11 +10,6 @@ License.
 
 Interface icons are provided by `@tabler/icons-react` under the MIT License.
 
-## TanStarter branding assets
-
-`public/tanstarter.png` is included to identify and link to the TanStarter
-project from the in-game settings page.
-
 ## Game artwork
 
 The MimoDoku mascot, application icons, and Open Graph artwork are project
