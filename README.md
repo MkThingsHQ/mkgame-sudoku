@@ -69,6 +69,15 @@ pnpm run deploy
 | `/settings` | Language and game preferences |
 | `/how-to-play` | Rules and controls |
 
+## Related open-source games
+
+This project belongs to the same small collection of standalone browser games:
+
+- [game-blocks](https://github.com/open-fox/game-blocks) — a lightweight block
+  puzzle with classic and daily modes
+- [game-poly](https://github.com/open-fox/game-poly) — a browser port of the
+  original level-based 8×8 block-fitting puzzle
+
 ## Build more with TanStarter
 
 MimoDoku is intentionally kept small and focused, but it originally grew out
