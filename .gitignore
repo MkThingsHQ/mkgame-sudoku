@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+.wrangler
+worker-configuration.d.ts
+playwright-report
+test-results
+.env
+.env.*
+!.env.example
+.DS_Store

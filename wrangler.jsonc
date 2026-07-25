@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "game-sudoku",
+  "main": "./src/server.ts",
+  "compatibility_date": "2026-07-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "sudoku.mksaas.link",
+      "custom_domain": true
+    }
+  ]
+}

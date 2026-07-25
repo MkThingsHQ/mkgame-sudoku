@@ -1,0 +1,25 @@
+.game-app[data-reduced-motion="true"] *,
+.game-app[data-reduced-motion="true"] *::before,
+.game-app[data-reduced-motion="true"] *::after {
+  scroll-behavior: auto !important;
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}
+
+.game-app[data-reduced-motion="true"] .cell-mark-wrap.is-new .cell-mark path {
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-app *,
+  .game-app *::before,
+  .game-app *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .game-app .cell-mark-wrap.is-new .cell-mark path {
+    stroke-dashoffset: 0;
+  }
+}
