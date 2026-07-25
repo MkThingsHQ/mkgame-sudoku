@@ -32,6 +32,10 @@ The suite verifies:
 - Ranking and progress persistence
 - Browser-history return navigation from settings and the guide without
   `returnTo`, `level`, or `mode` query parameters
+- Explicit home navigation from the level selector and ranking page, preventing
+  a level/selector browser-history loop
+- Preserved visual spacing between secondary-page titles and their first
+  content section
 - Active-game exit confirmation
 - Desktop and mobile layout health with no horizontal overflow
 - Shared secondary-page headers and accessible controls

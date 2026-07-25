@@ -67,7 +67,11 @@ export function GameSettingsPage() {
       data-testid="game-settings"
     >
       <main className="game-shell inner-page-shell">
-        <GamePageHeader backLabel={copy.backToGame} title={copy.settings} />
+        <GamePageHeader
+          backBehavior="history"
+          backLabel={copy.backToGame}
+          title={copy.settings}
+        />
         <GameSettingsControls />
       </main>
     </div>

@@ -3,15 +3,22 @@ import { Link, useCanGoBack, useRouter } from '@tanstack/react-router';
 import type { MouseEvent } from 'react';
 
 type GamePageHeaderProps = {
+  backBehavior?: 'history' | 'home';
   backLabel: string;
   title: string;
 };
 
-export function GamePageHeader({ backLabel, title }: GamePageHeaderProps) {
+export function GamePageHeader({
+  backBehavior = 'home',
+  backLabel,
+  title,
+}: GamePageHeaderProps) {
   const canGoBack = useCanGoBack();
   const router = useRouter();
 
   const goBack = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (backBehavior !== 'history') return;
+
     const historyIndex = window.history.state?.__TSR_index;
     if (canGoBack && typeof historyIndex === 'number' && historyIndex > 0) {
       event.preventDefault();
@@ -24,7 +31,7 @@ export function GamePageHeader({ backLabel, title }: GamePageHeaderProps) {
       <Link
         aria-label={backLabel}
         className="round-button"
-        onClick={goBack}
+        onClick={backBehavior === 'history' ? goBack : undefined}
         to="/"
       >
         <IconArrowLeft />

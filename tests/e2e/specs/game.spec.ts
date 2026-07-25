@@ -74,6 +74,21 @@ async function expectUnifiedPageHeader(page: Page, title: string) {
   await expect(header.locator('.game-page-header-spacer')).toHaveCount(1);
 }
 
+async function expectHeaderContentGap(page: Page, contentSelector: string) {
+  const gap = await page.evaluate((selector) => {
+    const header = document.querySelector('.game-page-header');
+    const content = document.querySelector(selector);
+    if (!header || !content) throw new Error('Header content is missing');
+
+    return (
+      content.getBoundingClientRect().top -
+      header.getBoundingClientRect().bottom
+    );
+  }, contentSelector);
+
+  expect(gap).toBeGreaterThanOrEqual(20);
+}
+
 async function expectGuideCardsToContainContent(page: Page) {
   const overflowingCards = await page
     .locator('.guide-card')
@@ -347,6 +362,12 @@ test.describe('MimoDoku game', () => {
     ] as const) {
       await page.goto(path);
       await expectUnifiedPageHeader(page, title);
+      if (path === '/how-to-play') {
+        await expectHeaderContentGap(page, '.guide-card-list');
+      }
+      if (path === '/settings') {
+        await expectHeaderContentGap(page, '.settings-section');
+      }
     }
   });
 
@@ -1341,6 +1362,32 @@ test.describe('MimoDoku game', () => {
     await page.goto('/play?level=6');
     await expect(page).toHaveURL(/\/levels$/);
     await expect(page.getByTestId('level-select')).toBeVisible();
+  });
+
+  test('leaves the level selector for home instead of reopening a level', async ({
+    page,
+  }) => {
+    await page.goto('/');
+    await page.evaluate(() => {
+      window.localStorage.setItem('game-tutorial-seen-v1', 'true');
+      window.localStorage.setItem(
+        'game-progress-v1',
+        JSON.stringify({ activeLevelIndex: 2, unlockedLevelIndex: 2 })
+      );
+    });
+    await page.reload();
+
+    for (let visit = 0; visit < 2; visit += 1) {
+      await page.getByRole('link', { name: /Levels/ }).click();
+      await page.getByRole('link', { name: 'Level 3' }).click();
+      await expect(page).toHaveURL(/\/play\?level=3$/);
+
+      await page.getByRole('button', { name: 'Exit game' }).click();
+      await expect(page).toHaveURL(/\/levels$/);
+
+      await page.getByRole('link', { name: 'Back to game' }).click();
+      await expectPathname(page, '/');
+    }
   });
 
   test('keeps the full game journey usable on a mobile viewport', async ({

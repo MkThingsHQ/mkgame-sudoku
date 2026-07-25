@@ -1966,6 +1966,11 @@ body {
   overflow: visible;
 }
 
+.game-page-header + .guide-card-list,
+.game-page-header + .settings-section {
+  margin-top: 24px;
+}
+
 .settings-section {
   margin-bottom: 18px;
   padding: 18px;
@@ -2821,6 +2826,11 @@ body {
   .game-page-header-spacer {
     width: 46px;
     height: 46px;
+  }
+
+  .game-page-header + .guide-card-list,
+  .game-page-header + .settings-section {
+    margin-top: 20px;
   }
 
   .standalone-level-grid {

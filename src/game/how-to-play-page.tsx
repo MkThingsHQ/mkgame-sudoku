@@ -15,7 +15,11 @@ export function HowToPlayPage() {
       data-testid="how-to-play"
     >
       <main className="game-shell inner-page-shell">
-        <GamePageHeader backLabel={copy.backToGame} title={copy.howToPlay} />
+        <GamePageHeader
+          backBehavior="history"
+          backLabel={copy.backToGame}
+          title={copy.howToPlay}
+        />
 
         <GameGuideCards language={preferences.language} />
       </main>
