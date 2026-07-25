@@ -30,7 +30,9 @@ The suite verifies:
 - English and Chinese settings with persisted preferences
 - Background music, sound, haptics, and reduced motion
 - Ranking and progress persistence
-- Active-game exit confirmation and settings return navigation
+- Browser-history return navigation from settings and the guide without
+  `returnTo`, `level`, or `mode` query parameters
+- Active-game exit confirmation
 - Desktop and mobile layout health with no horizontal overflow
 - Shared secondary-page headers and accessible controls
 - Root-level public routes (`/`, `/levels`, `/play`, `/ranking`,

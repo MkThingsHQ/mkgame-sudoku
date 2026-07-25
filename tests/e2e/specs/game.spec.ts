@@ -42,6 +42,10 @@ async function expectNoHorizontalOverflow(page: Page) {
   expect(dimensions.scrollWidth).toBe(dimensions.clientWidth);
 }
 
+async function expectPathname(page: Page, pathname: string) {
+  await expect.poll(() => new URL(page.url()).pathname).toBe(pathname);
+}
+
 async function expectOnlyNewCatLogos(page: Page) {
   const logos = await page.locator('[data-cat-logo]').evaluateAll((elements) =>
     elements.map((logo) => ({
@@ -476,7 +480,7 @@ test.describe('MimoDoku game', () => {
       0
     );
     await page.getByRole('link', { name: 'Back to game' }).click();
-    await expect(page).toHaveURL(/\/?$/);
+    await expectPathname(page, '/');
   });
 
   test('contains every guide card at phone width in both languages', async ({
@@ -1063,7 +1067,7 @@ test.describe('MimoDoku game', () => {
     await expect(page.getByTestId('daily-challenge')).toHaveCount(0);
   });
 
-  test('returns from standalone settings without losing the active board', async ({
+  test('returns from secondary pages without losing the active board', async ({
     page,
   }) => {
     await openGame(page);
@@ -1071,8 +1075,14 @@ test.describe('MimoDoku game', () => {
     await markedCell.click();
     await expect(markedCell).toHaveClass(/marked/);
 
+    await page.getByRole('link', { name: 'How to play' }).click();
+    await expect(page).toHaveURL(/\/how-to-play$/);
+    await page.getByRole('link', { name: 'Back to game' }).click();
+    await expect(page).toHaveURL(/\/play\?level=1$/);
+    await expect(markedCell).toHaveClass(/marked/);
+
     await page.getByRole('button', { name: 'Game settings' }).click();
-    await expect(page).toHaveURL(/\/settings\?level=1&returnTo=play$/);
+    await expect(page).toHaveURL(/\/settings$/);
     const settings = page.getByTestId('game-settings');
     await expect(settings).toBeVisible();
     await settings.getByRole('button', { name: /Sound effects/ }).click();
@@ -1175,7 +1185,7 @@ test.describe('MimoDoku game', () => {
       .getByRole('dialog', { name: 'Exit this puzzle?' })
       .getByRole('button', { name: 'Exit game' })
       .click();
-    await expect(page).toHaveURL(/\/?$/);
+    await expectPathname(page, '/');
   });
 
   test('animates hints and honors reduced-motion preferences', async ({
@@ -1343,10 +1353,12 @@ test.describe('MimoDoku game', () => {
     await page.getByRole('link', { name: 'How to play' }).click();
     await expectNoHorizontalOverflow(page);
     await page.getByRole('link', { name: 'Back to game' }).click();
+    await expectPathname(page, '/');
 
     await page.getByRole('link', { name: 'Settings' }).click();
     await expectNoHorizontalOverflow(page);
     await page.getByRole('link', { name: 'Back to game' }).click();
+    await expectPathname(page, '/');
 
     await page.getByRole('link', { name: /Levels/ }).click();
     await expectNoHorizontalOverflow(page);

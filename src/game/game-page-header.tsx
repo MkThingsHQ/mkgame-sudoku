@@ -1,35 +1,34 @@
 import { IconArrowLeft } from '@tabler/icons-react';
-import { Link } from '@tanstack/react-router';
-import type { GameReturnTarget } from './game-return-navigation';
+import { Link, useCanGoBack, useRouter } from '@tanstack/react-router';
+import type { MouseEvent } from 'react';
 
 type GamePageHeaderProps = {
   backLabel: string;
-  returnToPlay?: GameReturnTarget;
   title: string;
 };
 
-export function GamePageHeader({
-  backLabel,
-  returnToPlay,
-  title,
-}: GamePageHeaderProps) {
+export function GamePageHeader({ backLabel, title }: GamePageHeaderProps) {
+  const canGoBack = useCanGoBack();
+  const router = useRouter();
+
+  const goBack = (event: MouseEvent<HTMLAnchorElement>) => {
+    const historyIndex = window.history.state?.__TSR_index;
+    if (canGoBack && typeof historyIndex === 'number' && historyIndex > 0) {
+      event.preventDefault();
+      router.history.back();
+    }
+  };
+
   return (
     <header className="game-page-header">
-      {returnToPlay ? (
-        <Link
-          aria-label={backLabel}
-          className="round-button"
-          replace
-          search={returnToPlay}
-          to="/play"
-        >
-          <IconArrowLeft />
-        </Link>
-      ) : (
-        <Link aria-label={backLabel} className="round-button" to="/">
-          <IconArrowLeft />
-        </Link>
-      )}
+      <Link
+        aria-label={backLabel}
+        className="round-button"
+        onClick={goBack}
+        to="/"
+      >
+        <IconArrowLeft />
+      </Link>
       <h1>{title}</h1>
       <span aria-hidden="true" className="game-page-header-spacer" />
     </header>

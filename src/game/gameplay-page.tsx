@@ -479,14 +479,7 @@ export function GameplayPage({
   }
 
   function openGameSettings() {
-    void navigate({
-      search: {
-        level: gameMode === 'levels' ? level.id : undefined,
-        mode: gameMode === 'daily' ? 'daily' : undefined,
-        returnTo: 'play',
-      },
-      to: '/settings',
-    });
+    void navigate({ to: '/settings' });
   }
 
   function confirmReset() {
@@ -741,15 +734,7 @@ export function GameplayPage({
             <span>{copy.time}</span>
             <strong>{formatGameTime(elapsedSeconds)}</strong>
           </div>
-          <Link
-            className="game-help-link"
-            search={{
-              level: gameMode === 'levels' ? level.id : undefined,
-              mode: gameMode === 'daily' ? 'daily' : undefined,
-              returnTo: 'play',
-            }}
-            to="/how-to-play"
-          >
+          <Link className="game-help-link" to="/how-to-play">
             {copy.help}
             <IconQuestionMark />
           </Link>

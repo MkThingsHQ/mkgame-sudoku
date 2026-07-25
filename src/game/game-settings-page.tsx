@@ -9,7 +9,6 @@ import {
 import { GAME_COPY } from './game-copy';
 import { GamePageHeader } from './game-page-header';
 import { type GamePreferences, useGamePreferences } from './game-preferences';
-import type { GameReturnTarget } from './game-return-navigation';
 
 type BooleanPreference = Exclude<keyof GamePreferences, 'language'>;
 
@@ -56,11 +55,7 @@ const SETTING_ROWS: Array<{
   },
 ];
 
-type GameSettingsPageProps = {
-  returnToPlay?: GameReturnTarget;
-};
-
-export function GameSettingsPage({ returnToPlay }: GameSettingsPageProps) {
+export function GameSettingsPage() {
   const { isHydrated, preferences } = useGamePreferences();
   const copy = GAME_COPY[preferences.language];
 
@@ -72,11 +67,7 @@ export function GameSettingsPage({ returnToPlay }: GameSettingsPageProps) {
       data-testid="game-settings"
     >
       <main className="game-shell inner-page-shell">
-        <GamePageHeader
-          backLabel={copy.backToGame}
-          returnToPlay={returnToPlay}
-          title={copy.settings}
-        />
+        <GamePageHeader backLabel={copy.backToGame} title={copy.settings} />
         <GameSettingsControls />
       </main>
     </div>
