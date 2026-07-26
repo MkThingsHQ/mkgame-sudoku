@@ -78,6 +78,16 @@ This project belongs to the same small collection of standalone browser games:
 - [game-poly](https://github.com/open-fox/game-poly) — a browser port of the
   original level-based 8×8 block-fitting puzzle
 
+## Author
+
+[OpenFox](https://mksaas.link/fox-x) is an independent developer building products and developer tools. His products include:
+
+- [TanStarter](https://tanstarter.dev) — Ship Faster with TanStack, Cost Less with Cloudflare.
+- [MkSaaS](https://mksaas.com) — Make Your AI SaaS Product in a Weekend.
+- [MkImage](https://mkimage.ai) — Make Any Images Possible.
+- [MkDirs](https://mkdirs.com) — Launch AI-powered directory in 30 minutes.
+- [MkDollar](https://mkdollar.com) — The all-in-one platform to help you make first dollar online.
+
 ## Build more with TanStarter
 
 MimoDoku is intentionally kept small and focused, but it originally grew out
@@ -102,16 +112,6 @@ Third-party packages and binary asset notes are documented in
 
 If you are a rights holder and believe an asset should be removed, please open
 an issue or contact the repository maintainer.
-
-## Author
-
-[OpenFox](https://mksaas.link/fox-x) is an independent developer building products and developer tools. His products include:
-
-- [TanStarter](https://tanstarter.dev) — Ship Faster with TanStack, Cost Less with Cloudflare.
-- [MkSaaS](https://mksaas.com) — Make Your AI SaaS Product in a Weekend.
-- [MkImage](https://mkimage.ai) — Make Any Images Possible.
-- [MkDirs](https://mkdirs.com) — Launch AI-powered directory in 30 minutes.
-- [MkDollar](https://mkdollar.com) — The all-in-one platform to help you make first dollar online.
 
 ## License
 
