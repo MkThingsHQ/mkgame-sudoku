@@ -5,6 +5,8 @@ React, and Cloudflare Workers.
 
 ![MimoDoku](./public/og.png)
 
+**Play online:** https://sudoku.mksaas.link
+
 ## Features
 
 - 80 handcrafted logic puzzles
@@ -28,6 +30,11 @@ React, and Cloudflare Workers.
 
 ## Development
 
+Requirements:
+
+- Node.js 22+
+- pnpm 10+
+
 ```bash
 pnpm install
 pnpm dev
@@ -39,6 +46,7 @@ The local application is available at `http://localhost:3000`.
 
 ```bash
 pnpm check
+pnpm test
 pnpm e2e
 pnpm build
 ```
@@ -73,9 +81,9 @@ pnpm run deploy
 
 This project belongs to the same small collection of standalone browser games:
 
-- [game-blocks](https://github.com/open-fox/game-blocks) — a lightweight block
+- [game-blocks](https://github.com/MkThingsHQ/mkgame-blocks) — a lightweight block
   puzzle with classic and daily modes
-- [game-poly](https://github.com/open-fox/game-poly) — a browser port of the
+- [game-poly](https://github.com/MkThingsHQ/mkgame-poly) — a browser port of the
   original level-based 8×8 block-fitting puzzle
 
 ## Author
@@ -108,10 +116,15 @@ Cloudflare Workers deployment.
 ## Asset notice
 
 Third-party packages and binary asset notes are documented in
-[THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+[THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md). Third-party assets remain
+subject to their respective rights holders; the MIT license does not grant
+permission to copy, redistribute, modify, or otherwise use them beyond any
+rights you independently obtain.
 
 If you are a rights holder and believe an asset should be removed, please open
-an issue or contact the repository maintainer.
+an issue or contact the repository maintainer. If you fork or distribute this
+project, you are responsible for removing or replacing third-party assets
+unless you have the necessary authorization.
 
 ## License
 
